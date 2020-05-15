@@ -5,7 +5,8 @@ from .dir_utils import mkdir_p
 IRS_READER_ROOT = os.path.abspath(os.path.dirname(__file__))
 
 # This is the URL to amazon's bucket, could use another synced to it
-IRS_XML_HTTP_BASE = "https://s3.amazonaws.com/irs-form-990"
+IRS_XML_HTTP_BASE = os.environ.get(
+    "IRSX_XML_HTTP_BASE", "https://s3.amazonaws.com/irs-form-990");
 
 # It can be hard to locate this.
 IRSX_SETTINGS_LOCATION = (os.path.join(IRS_READER_ROOT, "settings.py"))
@@ -41,7 +42,7 @@ ALLOWED_VERSIONSTRINGS = [
 
 CSV_ALLOWED_VERSIONSTRINGS = ALLOWED_VERSIONSTRINGS + [
     '2010v3.2', '2010v3.4', '2010v3.6', '2010v3.7', '2011v1.2', '2011v1.3',
-    '2011v1.4', '2011v1.5', '2012v2.0', '2012v2.1', '2012v2.2', '2012v2.3', 
+    '2011v1.4', '2011v1.5', '2012v2.0', '2012v2.1', '2012v2.2', '2012v2.3',
     '2012v3.0'
 ]
 
